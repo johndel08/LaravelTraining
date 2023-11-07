@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     
-    protected $guarded = [];
+    // protected $guarded = [];
 
     protected $with = ['category', 'author'];
     // fillable for any data.
@@ -36,6 +36,12 @@ class Post extends Model
             )
         );
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     //eloquent relationship
     public function category()
     {
